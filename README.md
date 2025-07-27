@@ -30,25 +30,23 @@ This project introduces a fully transparent and reproducible risk scoring pipeli
 
 ---
 
-## Risk Scoring Pipeline
 
 The end-to-end workflow of the project is summarized below:
-
-```mermaid
 graph TD
-    A[Start: Wallet Addresses] --> B[Data Fetching: Compound V2 Subgraph]
+    A[Start: Wallet Addresses] --> B[Data Fetching from Compound V2 Subgraph]
     B --> C[Raw On-Chain Data]
     C --> D[Feature Extraction: Supplied, Borrowed, Ratios]
     D --> E[Feature Scaling and Normalization]
-    E --> F[Risk Scoring Logic: Weighted Feature Contributions]
+    E --> F[Risk Scoring Logic: Weighted Contributions]
     F --> G[Final Risk Score (0 - 1000)]
     G --> H[Output: 104_wallet_risk_scores.csv]
 
-    style A fill:#f2f2f2,stroke:#333,stroke-width:1.5px
-    style B fill:#dce6f1,stroke:#333,stroke-width:1.5px
-    style C fill:#e8f0fe,stroke:#333,stroke-width:1.5px
-    style D fill:#dce6f1,stroke:#333,stroke-width:1.5px
-    style E fill:#dce6f1,stroke:#333,stroke-width:1.5px
-    style F fill:#dce6f1,stroke:#333,stroke-width:1.5px
-    style G fill:#b3d9ff,stroke:#333,stroke-width:1.5px
-    style H fill:#fbe5f1,stroke:#333,stroke-width:1.5px
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#ccf,stroke:#333,stroke-width:2px
+    style D fill:#bbf,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#bbf,stroke:#333,stroke-width:2px
+    style G fill:#9cf,stroke:#333,stroke-width:2px
+    style H fill:#fcf,stroke:#333,stroke-width:2px
+
