@@ -2,23 +2,6 @@
 
 This project provides a framework for assessing the risk profile of blockchain wallets using their on-chain activity, specifically in relation to the Compound V2 lending protocol. By analyzing wallet-level behavior such as supply and borrow transactions, the system assigns each wallet a transparent, explainable risk score ranging from 0 to 1000.
 
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Project Goals](#project-goals)
-- [Risk Scoring Pipeline](#risk-scoring-pipeline)
-- [Repository Structure](#repository-structure)
-- [Getting Started](#getting-started)
-- [Output](#output)
-- [Methodology Summary](#methodology-summary)
-- [Contribution](#contribution)
-- [License](#license)
-- [Contact](#contact)
-
----
-
 ## Overview
 
 In decentralized finance (DeFi), wallet behavior is an important signal for:
