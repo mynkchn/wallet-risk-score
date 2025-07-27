@@ -40,8 +40,7 @@ graph TD
     C --> D[Feature Extraction: Supplied, Borrowed, Ratios]
     D --> E[Feature Scaling and Normalization]
     E --> F[Risk Scoring Logic: Weighted Contributions]
-    F --> G[Final Risk Score (0 - 1000)]
-    G --> H[Output: 104_wallet_risk_scores.csv]
+    F --> G[Output: 104_wallet_risk_scores.csv]
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
