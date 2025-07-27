@@ -1,54 +1,71 @@
-DeFi Wallet Risk Scoring Project
-Welcome to the DeFi Wallet Risk Scoring Project! This initiative aims to assess the risk profile of blockchain wallets based on their on-chain interactions, particularly within lending protocols like Compound V2.
+# DeFi Wallet Risk Scoring Project
 
-Understanding wallet behavior is crucial in the decentralized finance space for managing liquidity, identifying potential risks, and making informed decisions.
+This project provides a framework for assessing the risk profile of blockchain wallets using their on-chain activity, specifically in relation to the Compound V2 lending protocol. By analyzing wallet-level behavior such as supply and borrow transactions, the system assigns each wallet a transparent, explainable risk score ranging from 0 to 1000.
 
-Project Goal
-The core objective of this project is to:
+---
 
-Fetch Transaction History: Retrieve relevant on-chain data for a given set of wallet addresses from the Compound V2 protocol.
+## Table of Contents
 
-Data Preparation: Organize and preprocess this raw data into meaningful features.
+- [Overview](#overview)
+- [Project Goals](#project-goals)
+- [Risk Scoring Pipeline](#risk-scoring-pipeline)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Output](#output)
+- [Methodology Summary](#methodology-summary)
+- [Contribution](#contribution)
+- [License](#license)
+- [Contact](#contact)
 
-Risk Scoring: Develop a transparent and justifiable scoring model that assigns each wallet a risk score from 0 to 1000.
+---
 
-Deliverables: Produce a CSV file containing wallet IDs and their corresponding risk scores, accompanied by a comprehensive report detailing the methodology and findings.
+## Overview
 
-Our Approach: The Risk Scoring Pipeline
-To achieve our goals, we follow a structured pipeline, ensuring each step contributes to a robust and interpretable risk assessment.
+In decentralized finance (DeFi), wallet behavior is an important signal for:
 
+- Assessing protocol-level risks
+- Making informed decisions in credit delegation or lending
+- Monitoring borrowing behaviors and liquidation risks
+
+This project introduces a fully transparent and reproducible risk scoring pipeline that processes wallet-level transaction data from Compound V2 and outputs a standardized risk score.
+
+---
+
+## Project Goals
+
+1. **Fetch On-Chain Wallet Data**  
+   Retrieve relevant wallet interactions from Compound V2 using its public GraphQL subgraph endpoint.
+
+2. **Feature Engineering**  
+   Derive interpretable wallet metrics such as supply amount, borrow amount, and their ratios.
+
+3. **Risk Scoring**  
+   Implement a scoring algorithm to assign normalized risk scores to each wallet.
+
+4. **Reporting and Output**  
+   Export the results into a CSV file and explain the methodology in a separate technical report.
+
+---
+
+## Risk Scoring Pipeline
+
+The end-to-end workflow of the project is summarized below:
+
+```mermaid
 graph TD
-    A[Start: Wallet Addresses] --&gt; B(Data Fetching: Compound V2 Subgraph);
-    B --&gt; C{Raw On-Chain Data};
-    C --&gt; D(Feature Extraction: Supplied, Borrowed, Ratio);
-    D --&gt; E(Feature Scaling & Normalization);
-    E --&gt; F(Risk Scoring Logic: Weighted Contributions);
-    F --&gt; G(Final Risk Score: 0-1000);
-    G --&gt; H[End: `104_wallet_risk_scores.csv`];
+    A[Start: Wallet Addresses] --> B[Data Fetching: Compound V2 Subgraph]
+    B --> C[Raw On-Chain Data]
+    C --> D[Feature Extraction: Supplied, Borrowed, Ratios]
+    D --> E[Feature Scaling and Normalization]
+    E --> F[Risk Scoring Logic: Weighted Feature Contributions]
+    F --> G[Final Risk Score (0 - 1000)]
+    G --> H[Output: 104_wallet_risk_scores.csv]
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px;
-    style B fill:#bbf,stroke:#333,stroke-width:2px;
-    style C fill:#ccf,stroke:#333,stroke-width:2px;
-    style D fill:#bbf,stroke:#333,stroke-width:2px;
-    style E fill:#bbf,stroke:#333,stroke-width:2px;
-    style F fill:#bbf,stroke:#333,stroke-width:2px;
-    style G fill:#9cf,stroke:#333,stroke-width:2px;
-    style H fill:#fcf,stroke:#333,stroke-width:2px;
-
-How to Navigate This Project
-Jupyter/Colab Notebook: Dive into the jupyter_notebook_filename.ipynb (replace with your actual notebook file name if different) to explore the Python code implementation. This is where you can see the data fetching, processing, and scoring logic in action, and reproduce the results.
-
-REPORT.md: For an in-depth understanding of the project, including the detailed rationale behind feature selection, the precise scoring methodology, and critical findings (such as why many scores might appear uniform), refer to the comprehensive REPORT.md file. It provides the narrative and justification for our technical choices.
-
-104_wallet_risk_scores.csv: This CSV file contains the final output: the calculated risk scores for the 104 specified wallet addresses.
-
-Getting Started (for the Notebook)
-To run the analysis yourself:
-
-Environment: Ensure you have Python and necessary libraries installed (pandas, requests). If using Google Colab, these are mostly pre-installed, or can be installed via !pip install.
-
-Wallet List: The notebook contains the list of 104 wallet addresses directly embedded for convenience.
-
-Execution: Simply run the cells in sequence. The notebook will automatically fetch data, process it, calculate scores, and generate the output CSV.
-
-We believe this project provides a robust foundation for understanding and quantifying wallet risk in DeFi. Feel free to explore, scrutinize, and contribute!
+    style A fill:#f2f2f2,stroke:#333,stroke-width:1.5px
+    style B fill:#dce6f1,stroke:#333,stroke-width:1.5px
+    style C fill:#e8f0fe,stroke:#333,stroke-width:1.5px
+    style D fill:#dce6f1,stroke:#333,stroke-width:1.5px
+    style E fill:#dce6f1,stroke:#333,stroke-width:1.5px
+    style F fill:#dce6f1,stroke:#333,stroke-width:1.5px
+    style G fill:#b3d9ff,stroke:#333,stroke-width:1.5px
+    style H fill:#fbe5f1,stroke:#333,stroke-width:1.5px
