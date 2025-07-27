@@ -32,6 +32,8 @@ This project introduces a fully transparent and reproducible risk scoring pipeli
 
 
 The end-to-end workflow of the project is summarized below:
+
+```mermaid
 graph TD
     A[Start: Wallet Addresses] --> B[Data Fetching from Compound V2 Subgraph]
     B --> C[Raw On-Chain Data]
